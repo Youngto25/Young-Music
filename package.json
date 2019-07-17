@@ -1,0 +1,26 @@
+{
+  "name": "QQ-Music",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Youngto25/QQ-Music.git",
+  "author": "Blake <2979337714@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack --mode development",
+    "build": "./node_modules/.bin/webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "dependencies": {
+    "css-loader": "^3.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.3",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "postcss-loader": "^3.0.0",
+    "webpack-cli": "^3.3.6"
+  }
+}
