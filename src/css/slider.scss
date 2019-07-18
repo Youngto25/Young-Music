@@ -1,0 +1,13 @@
+main{
+  overflow: hidden;
+  section{
+    .item-wrapper{
+      display: flex;
+      .item{
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
