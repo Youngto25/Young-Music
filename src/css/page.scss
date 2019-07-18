@@ -1,0 +1,14 @@
+
+header{
+  height: $header-height;
+  width: 100vw;
+  background: $header-background;
+  display: flex;
+  align-items: center;
+  section{
+    margin-left: 10px;
+    img{
+      height: 28px;
+    }
+  }
+}
