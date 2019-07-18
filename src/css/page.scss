@@ -8,7 +8,40 @@ header{
   section{
     margin-left: 10px;
     img{
-      height: 28px;
+      height: 24px;
     }
+  }
+}
+nav{
+  ul{
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    li{
+      color: $nav-item-color;
+      flex: 1;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+      &.active{
+        color: $nav-item-active;
+      }
+      &.active::after{
+        content: '';
+        display: block;
+        height: 2px;
+        background: $nav-item-active;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
+main{
+  .hide{
+    display: none;
   }
 }
