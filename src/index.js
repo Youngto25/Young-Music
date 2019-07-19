@@ -1,18 +1,49 @@
 import './main.css'
 import Slider from './js/slider'
 import './js/tabs'
-
-var sliderItem = new Slider({
-  el: document.querySelector('.item-wrapper'),
-  slides: [
-    {link: '#1',image: './imgs/carousel-1.jpg'},
-    {link: '#2',image: './imgs/carousel-2.jpg'},
-    {link: '#3',image: './imgs/carousel-3.jpg'},
-    {link: '#4',image: './imgs/carousel-4.jpg'},
-    {link: '#5',image: './imgs/carousel-5.jpg'}
-  ]
-})
+import recommend from './json/recommend.json'
 
 if (module.hot) {
   module.hot.accept();
 }
+
+render()
+
+function render(){
+  let slides = recommend.data.slider.map(slide=>{
+    return {link: slide.linkUrl, image: slide.picUrl }
+  })
+  new Slider({
+    el: document.querySelector('.item-wrapper'),
+    slides
+  })
+}
+
+let radioList = recommend.data.radioList
+let songList = recommend.data.songList
+
+document.querySelector('.radio-item').innerHTML = radioList.map((item)=>{
+  return `
+  <div class="item">
+    <a href="#">
+      <img class="pic" src="${item.picUrl}" alt="">
+    </a>
+    <div class="play"><img src="./imgs/list_sprite.png"></div>
+    <div class="title">${item.Ftitle}</div>
+  </div>
+  `
+}).join('')
+
+document.querySelector('.songList-item').innerHTML = songList.map((item)=>{
+  return `
+  <div class="item">
+    <a href="#">
+      <img class="pic" src="${item.picUrl}" alt="">
+    </a>
+    <div class="play"><img src="./imgs/list_sprite.png"></div>
+    <div class="title">${item.songListDesc}</div>
+  </div>
+  `
+}).join('')
+
+
