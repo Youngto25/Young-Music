@@ -1,5 +1,6 @@
 import './main.css'
 import Slider from './js/slider'
+import lazyload from './js/lazyload'
 import './js/tabs'
 import recommend from './json/recommend.json'
 
@@ -26,7 +27,7 @@ document.querySelector('.radio-item').innerHTML = radioList.map((item)=>{
   return `
   <div class="item">
     <a href="#">
-      <img class="pic" src="${item.picUrl}" alt="">
+      <img class="pic lazyload" data-src="${item.picUrl}" alt="">
     </a>
     <div class="play"><img src="./imgs/list_sprite.png"></div>
     <div class="title">${item.Ftitle}</div>
@@ -38,7 +39,7 @@ document.querySelector('.songList-item').innerHTML = songList.map((item)=>{
   return `
   <div class="item">
     <a href="#">
-      <img class="pic" src="${item.picUrl}" alt="">
+      <img class="pic lazyload" data-src="${item.picUrl}" alt="">
     </a>
     <div class="play"><img src="./imgs/list_sprite.png"></div>
     <div class="title">${item.songListDesc}</div>
@@ -46,4 +47,4 @@ document.querySelector('.songList-item').innerHTML = songList.map((item)=>{
   `
 }).join('')
 
-
+lazyload(document.querySelectorAll('.lazyload'))
