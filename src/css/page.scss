@@ -56,6 +56,7 @@ main{
           position: relative;
           .pic{
             width: 47vw;
+            height: 47vw;
           }
           &:nth-child(even){
             margin-left: 1vw;
@@ -99,6 +100,7 @@ main{
           margin-bottom: 8px;
           .pic{
             width: 47vw;
+            height: 47vw;
           }
           &:nth-child(even){
             margin-left: 1vw;
@@ -126,6 +128,54 @@ main{
             margin-top: -4px;
             font-size: 12px;
             padding: 4px;
+          }
+        }
+      }
+    }
+  }
+  .leader-view{
+    .rank-item{
+      .item{
+        width: 96vw;
+        height: 28vw;
+        margin: 8px;
+        .pic{
+          float:left;
+          width: 28vw;
+          img{
+            width: 100%;
+          }
+        }
+        .content{
+          float: left;
+          width: 68vw;
+          height: 28vw;
+          background: #ffffff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .content-wrapper{
+            width: 60vw;
+            height: 24vw;
+            h2{
+              font-size: 16px;
+              color: #000;
+              font-weight: 400;
+              margin-bottom: 5px;
+              padding-top: 4px;
+            }
+            p{
+              font-size: 14px;
+              color: rgba(0,0,0,.5);
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              span{
+                color: #000;
+                margin-left: 8px;
+                margin-right: 5px;
+              }
+            }
           }
         }
       }
