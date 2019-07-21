@@ -181,4 +181,64 @@ main{
       }
     }
   }
+  .search-view{
+    .search-wrapper{
+      width: 94vw;
+      height: 8vw;
+      background: #ffffff;
+      margin: 10px auto;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .icon-search{
+        height: 5vw;
+      }
+      .input{
+        width: 86vw;
+        padding: 2vw;
+        color: rgba(0,0,0,.3);
+        font-size: 14px;
+      }
+    }
+    .search-list{
+      .list{
+        width: 100vw;
+        height: 14vw;
+        border-top: 1px solid #e5e5e5;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        .img{
+          width: 6vw;
+          height: 5.5vw;
+          overflow: hidden;
+          margin: 0 16px;
+          img{
+            width: 6vw;
+          }
+        }
+        .detail{
+          width: 82vw;
+          h2{
+            margin-bottom: 4px;
+            line-height: 18px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #000;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+          p{
+            font-size: 12px;
+            color: grey;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
 }

@@ -17,12 +17,12 @@
   <nav>
     <ul>
       <li class="recommend">推荐</li>
-      <li class="leaderboard active">排行榜</li>
-      <li class="search">搜索</li>
+      <li class="leaderboard">排行榜</li>
+      <li class="search active">搜索</li>
     </ul>
   </nav>
   <main>
-    <section class="rec-view" data-index="rec-view">
+    <section class="rec-view hide" data-index="rec-view">
       <div class="slider">
         <div class="item-wrapper"></div>
       </div>
@@ -38,7 +38,13 @@
     <section class="leader-view hide" data-index="leader-view">
       <div class="rank-item"></div>
     </section>
-    <section class="search-view hide" data-index="search-view">搜索</section>
+    <section class="search-view" data-index="search-view">
+      <div class="search-wrapper">
+        <img src="./imgs/icon-search.png" alt="" class="icon-search">
+        <input type="text" class="input" placeholder="搜索歌曲、歌单、专辑">
+      </div>
+      <div class="search-list"></div>
+    </section>
   </main>
   <script src="./main.js"></script>
 </body>

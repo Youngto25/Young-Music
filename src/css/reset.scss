@@ -1,10 +1,10 @@
 *{
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body{
-  margin: 0;
-  padding: 0;
   background: $body-background;
 }
 
@@ -14,4 +14,20 @@ ul,ol{
 
 a{
   text-decoration: none;
+}
+
+h1,h2,h3,h4,h5{
+  font-weight: normal;
+  font-size: 16px;
+}
+
+clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+input{
+  border: none;
+  outline: none;
 }
