@@ -27,10 +27,6 @@ app.get('/',async(req,res)=>{
   }
 })
 
-app.get('/rank',async(req,res)=>{
-  const url=``
-})
-
 
 //http://localhost:4000/search?keyword=eason&page=2
 app.get('/search',async(req,res)=>{

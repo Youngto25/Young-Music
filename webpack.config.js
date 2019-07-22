@@ -15,10 +15,27 @@ module.exports = {
           'sass-loader'
         ],
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+            {
+              loader: 'url-loader',
+              options: {
+                name: 'imgs/[name].[hash].[ext]',
+                publicPath: '/dist'
+              }
+            }
+        ]
+        }
     ]
   },
   plugins: [
     require('autoprefixer'),
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  }
 }
