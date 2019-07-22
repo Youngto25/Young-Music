@@ -15,7 +15,6 @@ module.exports = function lazyload(imgs){
     images.forEach(image=>observer.observe(image))
   }else{
     let onscroll = throttle(function(){
-      console.log(new Date())
       if(images.length === 0 ){
         return window.removeEventListener('scroll',onscroll)
       }
