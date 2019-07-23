@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>QQ Music</title>
 </head>
+
 <body>
-  <header>
+  
+  <header class="header">
     <section>
       <div class="logo">
         <img src="./imgs/logo.png" alt="">
       </div>
     </section>
+    <div class="open-play-page">
+      <span>play</span>
+    </div>
   </header>
   <nav>
     <ul>
@@ -21,7 +27,7 @@
       <li class="search active">搜索</li>
     </ul>
   </nav>
-  <main>
+  <main class="mark">
     <section class="rec-view hide" data-index="rec-view">
       <div class="slider">
         <div class="item-wrapper"></div>
@@ -47,6 +53,60 @@
       <div class="search-list"></div>
     </section>
   </main>
+  <section class="play-page">
+      <header class="song-detail">
+        <div class="icon-close-page">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-up"></use>
+          </svg>
+        </div>
+        <div class="title">
+          <h2></h2>
+          <p>一 <span></span> 一</p>
+        </div>
+      </header>
+      <main>
+        <div class="wrapper">
+          <section class="pic-wrapper">
+            <div class="pic">
+              <img alt="">
+            </div>
+            <div class="lyric">
+              <span>有没有那么一首歌</span>
+            </div>
+          </section>
+          <section class="lyrics-wrapper">
+            <span>歌词</span>
+          </section>
+        </div>
+        
+      </main>
+      <footer>
+        <div class="icon-exchange">
+          <span class="left active"></span>
+          <span class="right"></span>
+        </div>
+        <div class="progress-wrapper">
+          <span class="current-time">00:00</span>
+          <div class="progress">
+            <div class="progress-after">
+            </div>
+          </div>
+          <span class="total-time">04:00</span>
+        </div>
+        <div class="play">
+          <div class="icon-play">
+            <svg class="play-icon icon" aria-hidden="true">
+              <use xlink:href="#icon-bofang"></use>
+            </svg>
+            <svg class="pause-icon icon hide" aria-hidden="true">
+              <use xlink:href="#icon-zanting"></use>
+            </svg>
+          </div>
+        </div>
+      </footer>
+    </section>
   <script src="./main.js"></script>
 </body>
+
 </html>

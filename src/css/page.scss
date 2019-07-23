@@ -1,15 +1,29 @@
-header{
+.header{
   height: $header-height;
   width: 100vw;
   background: $header-background;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   section{
     margin-left: 10px;
     .logo{
       img{
         height: 20px;
       }
+    }
+  }
+  .open-play-page{
+    margin-right: 10px;
+    width: 50px;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    text-align: center;
+    span{
+      color: #e5e5e5;
+      font-size: 14px;
+      height: 23px;
+      line-height: 23px;
     }
   }
 }
@@ -42,9 +56,6 @@ nav{
   }
 }
 main{
-  .hide{
-    display: none;
-  }
   .rec-view{
     .radio{
       h2{
@@ -288,3 +299,4 @@ main{
     }
   }
 }
+
