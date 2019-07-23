@@ -4,6 +4,7 @@ module.exports = class Search{
     this.$input = this.$el.querySelector('.input')
     this.$search = this.$el.querySelector('.icon-search')
     this.$songs = []
+    this.$currentSong = {}
     this.$keyword = ''
     this.$page = 1
     this.$curpage = 1
@@ -48,8 +49,6 @@ module.exports = class Search{
         this.createList(json.data.song.list)
         this.$songs.push(...json.data.song.list)
         this.$curpage = json.data.song.curpage
-        console.log('songs')
-        console.log(this.$songs)
       })
       .then(()=>this.$fetching = false)
       .catch(()=>this.$fetching = false)
@@ -85,6 +84,16 @@ module.exports = class Search{
       `
     ).join('')
     this.$el.querySelector('.search-list').insertAdjacentHTML('beforeend',html)
+    this.listenerPlay()
+  }
+
+  listenerPlay(){
+    let lists = this.$el.querySelectorAll('.search-list .list')
+    for(let i=0; i<lists.length; i++){
+      lists[i].addEventListener('click',()=>{
+        this.$currentSong = this.$songs[i]
+      })
+    }
   }
 
   getSinger(singers){
