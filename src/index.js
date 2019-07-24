@@ -1,11 +1,18 @@
 import './main.css'
 import Slider from './js/slider'
 import Search from './js/search'
+import Play from './js/play'
+import Swiper from './js/shoushi'
+import './js/svg.js'
 import lazyload from './js/lazyload'
 import './js/tabs'
 import rank from './json/rank.json'
 
 let topList = rank.data.topList
+
+
+const $ = s=>document.querySelector(s)
+const $$ = s=>document.querySelectorAll(s)
 
 rankList(topList)
 
@@ -15,11 +22,10 @@ fetch('http://localhost:4000/')
     render(json.data.slider)
     radio(json.data.radioList)
     song(json.data.songList)
-    lazyload(document.querySelectorAll('.lazyload'))
+    lazyload($$('.lazyload'))
   })
 
-new Search(document.querySelector('.search-view'))
-
+var xxx = new Search($('.search-view'))
 
 
 if (module.hot) {
@@ -27,7 +33,7 @@ if (module.hot) {
 }
 
 function radio(radioList){
-  document.querySelector('.radio-item').innerHTML = radioList.map((item)=>{
+  $('.radio-item').innerHTML = radioList.map((item)=>{
     return `
     <div class="item">
       <a href="#">
@@ -41,7 +47,7 @@ function radio(radioList){
 }
 
 function song(songList){
-  document.querySelector('.songList-item').innerHTML = songList.map((item)=>{
+  $('.songList-item').innerHTML = songList.map((item)=>{
     return `
     <div class="item">
       <a href="#">
@@ -55,7 +61,7 @@ function song(songList){
 }
 
 function rankList(topList){
-  document.querySelector('.rank-item').innerHTML = topList.map((item)=>{
+  $('.rank-item').innerHTML = topList.map((item)=>{
     return `
     <div class="item">
       <div class="pic">
@@ -86,7 +92,31 @@ function render(slider){
     return {link: slide.linkUrl, image: slide.picUrl }
   })
   new Slider({
-    el: document.querySelector('.item-wrapper'),
+    el: $('.item-wrapper'),
     slides
   })
 }
+
+
+
+
+var playPage = $('.play-page')
+var openButton = $('.header .open-play-page')
+
+openButton.addEventListener('click',showPlayPage)
+
+$('.icon-close-page .icon').addEventListener('click',()=>{
+   playPage.style.transform = 'translateY(-100%)'
+})
+
+$('.search-view .search-list').addEventListener('click',()=>{
+  new Play( playPage,xxx.$currentSong)
+   openButton.dispatchEvent(new Event('click'))
+})
+
+function showPlayPage(){
+   playPage.style = `transform: translateY(0);transition: transform 0.5s`
+}
+
+
+new Swiper($('.play-page main'),$('.play-page .icon-exchange'))
