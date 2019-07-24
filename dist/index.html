@@ -76,7 +76,7 @@
             </div>
           </section>
           <section class="lyrics-wrapper">
-            <span>歌词</span>
+            <div class="player-lyrics-lines"></div>
           </section>
         </div>
         
@@ -96,16 +96,19 @@
         </div>
         <div class="play">
           <div class="icon-play">
-            <svg class="play-icon icon" aria-hidden="true">
+            <svg class="play-icon icon hide" aria-hidden="true">
               <use xlink:href="#icon-bofang"></use>
             </svg>
-            <svg class="pause-icon icon hide" aria-hidden="true">
+            <svg class="pause-icon icon" aria-hidden="true">
               <use xlink:href="#icon-zanting"></use>
             </svg>
           </div>
         </div>
       </footer>
+      <div class="player-background"></div>
+      <audio autoplay loop id="audio"></audio>
     </section>
+
   <script src="./main.js"></script>
 </body>
 

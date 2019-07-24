@@ -48,6 +48,7 @@
   main{
     width: 100vw;
     overflow: hidden;
+    position: relative;
     .wrapper{
       width: 200vw;
       display: flex;
@@ -80,15 +81,35 @@
       .lyrics-wrapper{
         height: 45vh;
         width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .player-lyrics-lines{
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          transform: translateY(100px);
+          transition: transform 0.3s;
+          .player-lyrics-line{
+            padding-bottom: 10px;
+            font-size: 12px;
+          }
+        }
       }
     }
   }
   footer{
+    position: absolute;
+    left: 50%;
+    bottom: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transform: translateX(-50%);
     .icon-exchange{
-      margin-top: 24px;
       span{
         display: inline-block;
         width: 4px;
@@ -131,8 +152,6 @@
       }
     }
     .play{
-      height: 15vh;
-      margin-top: 20px;
       .icon-play{
         display: flex;
         justify-content: center;
@@ -149,6 +168,18 @@
         
       }
     }
+  }
+  .player-background{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: bottom center;
+    filter: blur(15px);
   }
 }
 
