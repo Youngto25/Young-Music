@@ -47,6 +47,7 @@ export default  class Play{
   }
 
   setProgerssBar() {
+    if(this.$audio.currentTime === 0) this.$('.progress-after').style.transform = `translateX(100%)`
     let percent = this.$audio.currentTime * 100 /this.$audio.duration
     this.$('.progress-after').style.transform = `translateX(${percent-100}%)`
     this.$('.current-time').innerText = this.formateTime(this.$audio.currentTime)
