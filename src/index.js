@@ -14,8 +14,6 @@ let topList = rank.data.topList
 const $ = s=>document.querySelector(s)
 const $$ = s=>document.querySelectorAll(s)
 
-rankList(topList)
-
 fetch('http://localhost:4000/')
   .then(res=>res.json())
   .then(json=> {
@@ -24,6 +22,11 @@ fetch('http://localhost:4000/')
     song(json.data.songList)
     lazyload($$('.lazyload'))
   })
+
+fetch('http://localhost:4000/rank/')
+ .then(res => res.json())
+ .then(rank => rank.data.topList)
+ .then(topList => rankList(topList))
 
 var xxx = new Search($('.search-view'))
 
@@ -106,16 +109,26 @@ var openButton = $('.header .open-play-page')
 openButton.addEventListener('click',showPlayPage)
 
 $('.icon-close-page .icon').addEventListener('click',()=>{
+  $('.mark').classList.remove('notScroll')
+  $('.mark').style.height = 'auto'
    playPage.style.transform = 'translateY(-100%)'
 })
 
 $('.search-view .search-list').addEventListener('click',()=>{
-  new Play( playPage,xxx.$currentSong)
-   openButton.dispatchEvent(new Event('click'))
+  new Play(playPage,xxx.$currentSong)
+  setTimeout(()=>{
+    openButton.dispatchEvent(new Event('click'))
+  },300)
 })
 
 function showPlayPage(){
-   playPage.style = `transform: translateY(0);transition: transform 0.5s`
+  let currentSong = {songname: '龙的传人',albummid: '002a50FE1JHhpM',songid: 7028535,singer: [{name: '王力宏'}]}
+  if(!$('#audio').src){
+    new Play(playPage,currentSong)
+  }
+  $('.mark').classList.add('notScroll')
+  $('.mark').style.height = '80vh';
+  playPage.style = `transform: translateY(0);transition: transform 0.5s`
 }
 
 

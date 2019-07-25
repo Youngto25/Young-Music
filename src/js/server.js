@@ -43,4 +43,33 @@ app.get('/search',async(req,res)=>{
   }
 })
 
+
+
+app.get('/lyrics',async(req,res)=>{
+  const { musicid=234824638 } = req.query
+  const url = `https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&nobase64=1&musicid=${musicid}&songtype=0&_=${+ new Date()}&jsonpCallback=jsonp1`
+  try{
+    res.json(await request({
+      uri: url,
+      json: true,
+      headers: HEADERS
+    }))
+  }catch(e){
+    res.json({ error: e.message })
+  }
+})
+
+app.get('/rank',async(req,res)=>{
+  const url = `https://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&_=${+ new Date()}`
+  try{
+    res.json(await request({
+      uri: url,
+      json: true,
+      headers: HEADERS
+    }))
+  }catch(e){
+    res.json({ error: e.message })
+  }
+})
+
 app.listen(4000)

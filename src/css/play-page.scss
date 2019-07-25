@@ -6,11 +6,13 @@
   height: 100vh;
   width: 100vw;
   transform: translateY(-100%);
-  background: #393e46;
+  overflow: hidden;
+  background: #222f3e;
+  opacity: .98;
   .song-detail{
     position: relative;
     height: 20vw;
-    background: #222831;
+    border-bottom: 1px solid #e5e5e5;
     .icon-close-page{
       position: absolute;
       top: 50%;
@@ -73,7 +75,7 @@
         }
         .lyric{
           margin-top: 36px;
-          color: #e5e5e5;
+          color: #31c27c;
           font-size: 12px;
           text-align: center;
         }
@@ -91,11 +93,14 @@
           justify-content: center;
           align-items: center;
           position: relative;
-          transform: translateY(100px);
-          transition: transform 0.3s;
-          .player-lyrics-line{
+          transition: transform 0.5s;
+          p{
             padding-bottom: 10px;
             font-size: 12px;
+            color: #e5e5e5;
+            &.current{
+              color: #31c27c;
+            }
           }
         }
       }
@@ -122,7 +127,7 @@
         &.active{
           height: 6px;
           width: 6px;
-          background: #ffffff;
+          background: #31c27c;
         }
       }
     }
@@ -174,12 +179,24 @@
     top: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: -3;
     width: 100vw;
     height: 100vh;
     background-size: cover;
     background-position: bottom center;
     filter: blur(15px);
+    transform: scale(1.15);
+  }
+  .background{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+    width: 100vw;
+    height: 100vh;
+    background: #222f3e;
+    opacity: 0.6;
   }
 }
 

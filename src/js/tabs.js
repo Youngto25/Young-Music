@@ -1,6 +1,6 @@
 module.exports = (function(){
   var lis = document.querySelectorAll('nav ul li')
-  var sections = document.querySelectorAll('main>section')
+  var sections = document.querySelectorAll('main.mark>section')
   for(let i=0;i<lis.length;i++){
     lis[i].addEventListener('click',function(){
       for(let i=0;i<lis.length;i++){
