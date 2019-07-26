@@ -118,7 +118,7 @@ $('.search-view .search-list').addEventListener('click',()=>{
   new Play(playPage,xxx.$currentSong)
   setTimeout(()=>{
     openButton.dispatchEvent(new Event('click'))
-  },300)
+  },400)
 })
 
 function showPlayPage(){
