@@ -14,6 +14,10 @@ let topList = rank.data.topList
 const $ = s=>document.querySelector(s)
 const $$ = s=>document.querySelectorAll(s)
 
+setTimeout(()=>{
+  $('#siteWelcome').classList.remove('active')
+},100)
+
 fetch('http://localhost:4000/')
   .then(res=>res.json())
   .then(json=> {
@@ -118,7 +122,7 @@ $('.search-view .search-list').addEventListener('click',()=>{
   new Play(playPage,xxx.$currentSong)
   setTimeout(()=>{
     openButton.dispatchEvent(new Event('click'))
-  },400)
+  },200)
 })
 
 function showPlayPage(){

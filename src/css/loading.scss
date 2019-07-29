@@ -1,0 +1,39 @@
+#siteWelcome{
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  background: #e5e5e5;
+  z-index: 1000;
+  display: none;
+  &.active{
+    display: block;
+  }
+  .icon-loading{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    .icon{
+      animation: loading 1s infinite linear;
+      height: 10vw;
+      width: 10vw;
+    }
+  }
+}
+
+@keyframes loading{
+  0%{
+    transform: rotate(90deg)
+  }
+  25%{
+    transform: rotate(180deg)
+  }
+  50%{
+    transform: rotate(270deg)
+  }
+  100%{
+    transform: rotate(360deg)
+  }
+}
