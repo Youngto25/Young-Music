@@ -1,15 +1,11 @@
 import './main.css'
-import Slider from './js/slider'
 import Search from './js/search'
 import Play from './js/play'
 import Swiper from './js/shoushi'
-import './js/svg.js'
 import lazyload from './js/lazyload'
+
+
 import './js/tabs'
-import rank from './json/rank.json'
-
-let topList = rank.data.topList
-
 
 const $ = s=>document.querySelector(s)
 const $$ = s=>document.querySelectorAll(s)
@@ -18,53 +14,20 @@ setTimeout(()=>{
   $('#siteWelcome').classList.remove('active')
 },100)
 
-fetch('http://localhost:4000/')
-  .then(res=>res.json())
-  .then(json=> {
-    render(json.data.slider)
-    radio(json.data.radioList)
-    song(json.data.songList)
-    lazyload($$('.lazyload'))
-  })
 
 fetch('http://localhost:4000/rank/')
  .then(res => res.json())
  .then(rank => rank.data.topList)
- .then(topList => rankList(topList))
+ .then(topList => {
+   rankList(topList)
+   lazyload($$('.lazyload'))
+  })
 
 var xxx = new Search($('.search-view'))
 
 
 if (module.hot) {
   module.hot.accept();
-}
-
-function radio(radioList){
-  $('.radio-item').innerHTML = radioList.map((item)=>{
-    return `
-    <div class="item">
-      <a href="#">
-        <img class="pic lazyload" data-src="${item.picUrl}" alt="">
-      </a>
-      <div class="play"><img src="./imgs/list_sprite.png"></div>
-      <div class="title">${item.Ftitle}</div>
-    </div>
-    `
-  }).join('')
-}
-
-function song(songList){
-  $('.songList-item').innerHTML = songList.map((item)=>{
-    return `
-    <div class="item">
-      <a href="#">
-        <img class="pic lazyload" data-src="${item.picUrl}" alt="">
-      </a>
-      <div class="play"><img src="./imgs/list_sprite.png"></div>
-      <div class="title">${item.songListDesc}</div>
-    </div>
-    `
-  }).join('')
 }
 
 function rankList(topList){
@@ -93,19 +56,6 @@ function songHandle(item){
     `
   ).join('')
 }
-
-function render(slider){
-  let slides = slider.map(slide=>{
-    return {link: slide.linkUrl, image: slide.picUrl }
-  })
-  new Slider({
-    el: $('.item-wrapper'),
-    slides
-  })
-}
-
-
-
 
 var playPage = $('.play-page')
 var openButton = $('.header .open-play-page')

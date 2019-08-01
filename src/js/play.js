@@ -8,8 +8,7 @@ export default  class Play{
     this.$audio = this.$('#audio')
     this.$src = ''
     this.$Lyrics = {}
-    console.log(this.$currentSong)
-    console.log(this.$audio)
+    this.getSongSrc()
     this.setData()
     this.setHeader()
     this.setIconProgressBar()
@@ -19,7 +18,6 @@ export default  class Play{
       this.setProgerssBar()
       this.$('.wrapper .lyric span').innerText = this.$Lyrics.$node.innerText || '......'
     })
-    this.getSongSrc()
   }
 
   getSongSrc(){
@@ -63,9 +61,6 @@ export default  class Play{
     this.$('.play-icon').addEventListener('click',()=>{
       this.addHide('.play-icon')
       this.removeHide('.pause-icon')
-      if(!this.$audio.src){
-        
-      }
       setTimeout(()=>{
         this.$audio.play()
       },0)
@@ -88,10 +83,6 @@ export default  class Play{
     return minutes + ':' + seconds
   }
 
-  playModel(){
-
-  }
-
   addHide(element){
     return this.$(element).classList.add('hide')
   }
@@ -108,9 +99,4 @@ export default  class Play{
     return this.$iconPlay.querySelectorAll(s)
   }
 }
-
-//http://aqqmusic.tc.qq.com/amobile.music.tc.qq.com/C400001luHbo2nQT1Y.m4a?guid=9082630980&vkey=A3698750923D94E4468877E51A2B50B808166FB74221B6C90F304993FB655068B034B7686C28504F0685E66E525D13E46B1B2E8BE1F6C514&uin=0&fromtag=38
-      //http://124.14.20.14/amobile.music.tc.qq.com/C400000QuRpw4KQoLI.m4a?guid=9082630980&vkey=BF15BA48808985F74F9770206AB8539A4FEA45E416061FF71BA3BC313A4DA6B53C43A3ACB5B9323569DAC99DCA87999BA8B6F3A994B3A556&uin=0&fromtag=38
-
-//http://ws.stream.qqmusic.qq.com/C100000aWkAw2Vg2vQ.m4a?fromtag=38
 

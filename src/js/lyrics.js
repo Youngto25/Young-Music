@@ -29,8 +29,6 @@ module.exports = class Lyrics{
   }
 
   locateLyric() {
-    console.log('locateLyric')
-    console.log(this.$audio.currentTime)
     if(this.$audio.currentTime === 0) {
       this.lyricIndex = -1
       this.$lines.style.transform = `translateY(0px)`
