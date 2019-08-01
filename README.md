@@ -1,7 +1,7 @@
 # QQ-Music
 
 ## 描述
-一款模仿QQ音乐的播放器。集音乐推荐、排行榜、搜索、播放于一体。
+适用于手机端的一款模仿QQ音乐的播放器。集音乐推荐、排行榜、搜索、播放于一体。
 
 技术栈: HTML5 + ES6 + 懒加载 + 防抖 + Webpack + Scss + Express + require + cors
 
