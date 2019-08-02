@@ -3,7 +3,7 @@
 ## 描述
 适用于手机端的一款模仿QQ音乐的播放器。集音乐推荐、排行榜、搜索、播放于一体。
 
-技术栈: HTML5 + ES6 + 懒加载 + 节流 + 手势库 + Webpack + Scss + Express + require + cors
+技术栈: HTML5 + ES6 + 懒加载 + 节流 + 防抖 + 手势库 + Webpack + Scss + Express + require + cors
 
 ## 效果图
 ![推荐页](https://github.com/Youngto25/QQ-Music/blob/master/src/imgs/QQFirstPage.jpg)
