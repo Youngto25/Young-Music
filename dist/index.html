@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>QQ Music</title>
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./another.css">
 </head>
 
 <body>
@@ -29,13 +31,13 @@
   </header>
   <nav>
     <ul>
-      <li class="recommend">推荐</li>
+      <li class="recommend active">推荐</li>
       <li class="leaderboard">排行榜</li>
-      <li class="search active">搜索</li>
+      <li class="search">搜索</li>
     </ul>
   </nav>
   <main class="mark">
-    <section class="rec-view hide" data-index="rec-view">
+    <section class="rec-view" data-index="rec-view">
       <div class="slider">
         <div class="item-wrapper"></div>
       </div>
@@ -51,7 +53,7 @@
     <section class="leader-view hide" data-index="leader-view">
       <div class="rank-item"></div>
     </section>
-    <section class="search-view" data-index="search-view">
+    <section class="search-view hide" data-index="search-view">
       <div class="search-wrapper">
         <img src="./imgs/icon-search.png" alt="" class="icon-search">
         <input type="text" class="input" placeholder="搜索歌曲、歌单、专辑">

@@ -1,0 +1,36 @@
+Arguments: 
+  D:\Nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js init
+
+PATH: 
+  D:\app\hasee\product\11.2.0\dbhome_1\bin;C:\Program Files\Java\jdk1.8.0_131\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\；C:\MinGW\bin；;D;\apache\apache-ant-1.9.6-bin\apache-ant-1.9.6\bin;%HADOOP_HOME%\bin;D:\ant\apache-ant-1.9.6\bin;C:\WINDOWS\System32\OpenSSH\;D:\GitBash\Git\cmd;D:\GitBash\Git\mingw64\bin;D:\GitBash\Git\usr\bin;D:\Nodejs\;C:\Users\hasee\AppData\Local\Yarn\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Bandizip\7z;C:\Users\hasee\AppData\Local\Microsoft\WindowsApps;D:\Microsoft VS Code\bin;C:\Users\hasee\AppData\Roaming\npm;C:\Users\hasee\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.15.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:125850:13)
+      at Interface.emit (events.js:189:13)
+      at Interface._ttyWrite (readline.js:783:16)
+      at ReadStream.onkeypress (readline.js:168:10)
+      at ReadStream.emit (events.js:189:13)
+      at emitKeys (internal/readline.js:424:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1022:36)
+      at ReadStream.emit (events.js:189:13)
+      at addChunk (_stream_readable.js:284:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
