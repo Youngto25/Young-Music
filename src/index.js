@@ -3,7 +3,8 @@ import Search from './js/search'
 import Play from './js/play'
 import Swiper from './js/shoushi'
 import lazyload from './js/lazyload'
-
+import Rank from './json/rank.json'
+import searchList from './json/search.json'
 
 import './js/tabs'
 
@@ -15,13 +16,17 @@ setTimeout(()=>{
 },100)
 
 
-fetch('http://localhost:4000/rank/')
- .then(res => res.json())
- .then(rank => rank.data.topList)
- .then(topList => {
-   rankList(topList)
-   lazyload($$('.lazyload'))
-  })
+// fetch('http://localhost:4000/rank/')
+//  .then(res => res.json())
+//  .then(rank => rank.data.topList)
+//  .then(topList => {
+//    rankList(topList)
+//    lazyload($$('.lazyload'))
+//   })
+
+rankList(Rank.data.topList)
+lazyload($$('.lazyload'))
+
 
 var xxx = new Search($('.search-view'))
 

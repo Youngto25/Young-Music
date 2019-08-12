@@ -22,11 +22,13 @@ module.exports = class Search{
 
   getValue(){
     this.$search.addEventListener('click',this.search.bind(this))
-    this.$input.addEventListener('input',(event)=>{
+    let fn = (event)=>{
       let keyword = event.target.value.trim()
       if(!keyword) return this.reset()
       this.$keyword = keyword
-    })
+    }
+    fn = this.debounce(fn,400)
+    this.$input.addEventListener('input',fn)
   }
 
   reset(){
@@ -101,5 +103,13 @@ module.exports = class Search{
       `
         ${singer.name}
       `).join('/')
+  }
+
+  debounce(func,wait){
+    let timer = null
+    return function(){
+      if(timer) clearTimeout(timer)
+      timer = setTimeout(()=>func.apply(this,arguments),wait)
+    }
   }
 }

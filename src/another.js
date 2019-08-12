@@ -2,6 +2,7 @@ import './rec.css'
 import './js/svg.js'
 import Slider from './js/slider'
 import lazyload from './js/lazyload'
+import Recommend from './json/recommend.json'
 
 const $ = s=>document.querySelector(s)
 const $$ = s=>document.querySelectorAll(s)
@@ -10,14 +11,19 @@ if (module.hot) {
   module.hot.accept();
 }
 
-fetch('http://localhost:4000/')
-  .then(res=>res.json())
-  .then(json=> {
-    render(json.data.slider)
-    radio(json.data.radioList)
-    song(json.data.songList)
-    lazyload($$('.lazyload'))
-  })
+render(Recommend.data.slider)
+radio(Recommend.data.radioList)
+song(Recommend.data.songList)
+lazyload($$('.lazyload'))
+
+// fetch('http://localhost:4000/')
+//   .then(res=>res.json())
+//   .then(json=> {
+//     render(json.data.slider)
+//     radio(json.data.radioList)
+//     song(json.data.songList)
+//     lazyload($$('.lazyload'))
+//   })
 
 function radio(radioList){
   $('.radio-item').innerHTML = radioList.map((item)=>{
