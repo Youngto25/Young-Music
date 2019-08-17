@@ -20,12 +20,10 @@ module.exports = class Lyrics{
   }
 
   getLyrics(){
-    fetch(`http://localhost:4000/lyrics?musicid=${this.$musicid}`)
-    .then(res => res.json())
-    .then(json => json.replace(/jsonp1\((.*)\)/, '$1'))
-    .then(data => JSON.parse(data))
-    .then(lyrics => lyrics.lyric)
-    .then(lyric => this.reset(lyric))
+    fetch(`https://api.imjad.cn/cloudmusic/?type=lyric&id=${this.$musicid}`)
+      .then(res=>res.json())
+      .then(json=>json.lrc.lyric)
+      .then(lyric => this.reset(lyric))
   }
 
   locateLyric() {
@@ -48,7 +46,6 @@ module.exports = class Lyrics{
   }
 
   setLyrics(lyrics) {
-    console.log('setLyrics')
     this.lyricIndex = 0
     let fragment = document.createDocumentFragment()
     let lyricsArr  = []
@@ -83,7 +80,6 @@ module.exports = class Lyrics{
   }
 
   setLyricToCenter(node) {
-    console.log(node)
     this.$node = node
     let translateY = node.offsetTop - this.$el.offsetHeight / 2
     translateY = translateY > 0 ? translateY : 0
@@ -93,21 +89,11 @@ module.exports = class Lyrics{
   }
 
   reset(text) {
-    if (text) {
-      let lyrics = this.text = this.formatText(text) || ''
-      this.setLyrics(lyrics)
-    }
+    if(text) this.setLyrics(text)
   }
-
 
   getSeconds(line) {
     return +line.replace(/^\[(\d{2}):(\d{2}).*/, (match, p1, p2) => 60 * (+p1) + (+p2))
-  }
-
-  formatText(text) {
-    let div = document.createElement('div')
-    div.innerHTML = text
-    return div.innerText
   }
 
   $(s){

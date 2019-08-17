@@ -10,19 +10,19 @@ import './js/tabs'
 
 const $ = s=>document.querySelector(s)
 const $$ = s=>document.querySelectorAll(s)
+var songs = []
+var index = 3
 
 setTimeout(()=>{
   $('#siteWelcome').classList.remove('active')
 },100)
 
 
-// fetch('http://localhost:4000/rank/')
-//  .then(res => res.json())
-//  .then(rank => rank.data.topList)
-//  .then(topList => {
-//    rankList(topList)
-//    lazyload($$('.lazyload'))
-//   })
+fetch(`https://api.apiopen.top/searchMusic?name=男儿当自强`)
+      .then(res=>res.json())
+      .then(json=>{
+        songs.push(...json.result)
+      })
 
 rankList(Rank.data.topList)
 lazyload($$('.lazyload'))
@@ -80,14 +80,34 @@ $('.search-view .search-list').addEventListener('click',()=>{
   },200)
 })
 
+$('#pre-icon').addEventListener('click',()=>{
+  index--
+  let music = null
+  xxx.$songs.length?music = xxx.$songs:music = songs
+  if(index < 0) index = music.length - 1
+  ssss(index,music)
+})
+
+$('#next-icon').addEventListener('click',()=>{
+  index++
+  let music = null
+  xxx.$songs.length?music = xxx.$songs:music = songs
+  console.log(music)
+  if(index > music.length - 1) index = 0
+  ssss(index,music)
+})
+
 function showPlayPage(){
-  let currentSong = {songname: '龙的传人',albummid: '002a50FE1JHhpM',songid: 7028535,singer: [{name: '王力宏'}]}
   if(!$('#audio').src){
-    new Play(playPage,currentSong)
+    new Play(playPage,songs[0])
   }
   $('.mark').classList.add('notScroll')
   $('.mark').style.height = '80vh';
   playPage.style = `transform: translateY(0);transition: transform 0.5s`
+}
+
+function ssss(index,songs){
+  new Play(playPage,songs[index])
 }
 
 

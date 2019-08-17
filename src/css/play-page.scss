@@ -59,7 +59,7 @@
       transform: translateX(0);
       transition: transform 0.3s;
       .pic-wrapper{
-        margin-top: 4vh;
+        margin-top: 10vh;
         height: 45vh;
         width: 100vw;
         .pic{
@@ -75,7 +75,7 @@
         }
         .lyric{
           margin-top: 36px;
-          color: #31c27c;
+          color: #42002D;
           font-size: 12px;
           text-align: center;
         }
@@ -99,7 +99,7 @@
             font-size: 12px;
             color: #e5e5e5;
             &.current{
-              color: #31c27c;
+              color: #42002D;
             }
           }
         }
@@ -127,7 +127,7 @@
         &.active{
           height: 6px;
           width: 6px;
-          background: #31c27c;
+          background: #42002D;
         }
       }
     }
@@ -147,7 +147,7 @@
           width: 60vw;
           height: 2px;
           border-radius: 2px;
-          background: #31c27c;
+          background: #42002D;
           transform: translateX(-100%);
         }
       }
@@ -157,20 +157,28 @@
       }
     }
     .play{
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80vw;
+      height: 60px;
+      border-radius: 12px;
       .icon-play{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        height: 16vw;
-        width: 16vw;
+        margin: 0 36px;
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
         .icon{
-          height: 16vw;
-          width: 16vw;
+          height: 45px;
+          width: 45px;
           fill: #e5e5e5;
-          position: absolute;
         }
-        
+      }
+      .icon{
+        height: 25px;
+        width: 25px;
+        fill: #e5e5e5;
       }
     }
   }

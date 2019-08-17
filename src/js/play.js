@@ -1,17 +1,15 @@
 import Lyrics from './lyrics'
 
 export default  class Play{
-  constructor(el,currentSong){
+  constructor(el,currentSong,songs){
     this.$el = el
     this.$currentSong = currentSong
+    this.$songs = songs
     this.$iconPlay = this.$('.icon-play')
     this.$audio = this.$('#audio')
     this.$src = ''
     this.$Lyrics = {}
-    this.getSongSrc()
-    this.setData()
-    this.setHeader()
-    this.setIconProgressBar()
+    this.render()
     this.playSong()
     this.pauseSong()
     this.$audio.addEventListener('timeupdate',()=>{
@@ -20,16 +18,20 @@ export default  class Play{
     })
   }
 
+  render(){
+    this.getSongSrc()
+    this.setData()
+    this.setHeader()
+    this.setIconProgressBar()
+  }
+
   getSongSrc(){
-    fetch(`https://api.apiopen.top/searchMusic?name=${this.$currentSong.songname}`)
-      .then(res => res.json())
-      .then(json => json.result[0])
-      .then(data => this.$src = data.url)
-      .then(src => this.$audio.src = this.$src)
+    this.$src = this.$currentSong.url
+    this.$audio.src = this.$src
   }
 
   setData(){
-    let src = `http://y.gtimg.cn/music/photo_new/T002R300x300M000${this.$currentSong.albummid}.jpg?max_age=2592000`
+    let src = this.$currentSong.pic
     this.$('.pic-wrapper .pic img').src = src
     this.$('.player-background').style = `background-image: url(${src})`
     
@@ -38,10 +40,8 @@ export default  class Play{
   }
 
   setHeader(){
-    this.$('.song-detail .title h2').innerText = this.$currentSong.songname
-    this.$('.song-detail .title p span').innerText = this.$currentSong.singer.map((singName)=>{
-      return `${singName.name}`
-    }).join(' ')
+    this.$('.song-detail .title h2').innerText = this.$currentSong.title
+    this.$('.song-detail .title p span').innerText = this.$currentSong.author
   }
 
   setProgerssBar() {
