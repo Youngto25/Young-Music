@@ -1,20 +1,20 @@
-# QQ-Music
+# Young music
 
 ## 描述
-适用于手机端的一款模仿QQ音乐的播放器。集音乐推荐、排行榜、搜索、播放于一体。
+适用于手机端的一款自制音乐播放器。集音乐推荐、排行榜、搜索、播放于一体。
 
 技术栈: HTML5 + ES6 + 懒加载 + 节流 + 防抖 + 手势库 + Webpack + Scss + Express + require + cors
 
 ## 效果图
-![推荐页](https://github.com/Youngto25/QQ-Music/blob/master/src/imgs/QQFirstPage.jpg)
+![推荐页](https://github.com/Youngto25/Young-Music/blob/master/src/imgs/FirstPage.png)
 
-![排行榜](https://github.com/Youngto25/QQ-Music/blob/master/src/imgs/QQRankPage.jpg)
+![排行榜](https://github.com/Youngto25/Young-Music/blob/master/src/imgs/RankPage.png)
 
-![搜索页](https://github.com/Youngto25/QQ-Music/blob/master/src/imgs/QQSearchPage.jpg)
+![搜索页](https://github.com/Youngto25/Young-Music/blob/master/src/imgs/SearchPage.png)
 
-![播放页](https://github.com/Youngto25/QQ-Music/blob/master/src/imgs/QQPlayPage.jpg)
+![播放页](https://github.com/Youngto25/Young-Music/blob/master/src/imgs/PlayPage.png)
 
-![歌词页](https://github.com/Youngto25/QQ-Music/blob/master/src/imgs/QQLyricsPage.jpg)
+![歌词页](https://github.com/Youngto25/Young-Music/blob/master/src/imgs/LyricsPage.png)
 
 ## 准备工作
 本项目的所有数据都是通过QQ音乐获得，而因为跨越问题，不能直接获取到QQ音乐的数据。所以只能伪造请求，以QQ音乐所指定的域名获得数据再传到指定网址，由指定的网址获得数据。
